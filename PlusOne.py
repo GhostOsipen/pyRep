@@ -28,9 +28,25 @@ def plusOne(digits: list) -> list:
 
     return temp[::-1]
 
-print(plusOne([1,1,5,9]))
-print(plusOne([1,1,1,9]))
-print(plusOne([1,9,9,9]))
-print(plusOne([9,9,9,9]))
+def plus_one(digits: list) -> list:
+    carry = False
 
-#test
+    for i in reversed(range(len(digits))):
+        digits[i] += 1
+        if digits[i] > 9:
+            digits[i] = 0
+            carry = True
+        else:
+            carry = False
+            break
+    
+    if carry:
+        digits.insert(0, 1)
+    
+    return digits
+
+print(plus_one([1,1,5,9]))
+print(plus_one([1,1,1,9]))
+print(plus_one([1,9,9,9]))
+print(plus_one([9,9,9,9]))
+
