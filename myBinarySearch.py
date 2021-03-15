@@ -20,4 +20,3 @@ def my_binary_search(nums: list, target: int) -> int:
             print('Number of elements %s' % len(nums))
             return mid
 
-print(my_binary_search([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], 3))
