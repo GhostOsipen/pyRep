@@ -1,23 +1,19 @@
-import math
-
 def my_binary_search(nums: list, target: int) -> int:
     nums.sort()
-    maxN = nums[-1]
-    minN = nums[0]
-    search = math.floor((maxN + minN) / 2)
-    stepCount = 0
+    maxN = len(nums) - 1
+    minN = 0
 
-    if target < minN or target > maxN:
+    if target < nums[minN] or target > nums[maxN]:
         return None
     else:
-        while search != target:
-            stepCount += 1
-            search = math.floor((maxN + minN) / 2)
-            if search > target:
-                maxN = search
-            if search < target:
-                minN = search
+        while nums[(maxN + minN) // 2] != target:
+            if (maxN-minN) == 1:
+                return None
+            else:
+                if nums[(maxN + minN) // 2] > target:
+                    maxN = (maxN + minN) // 2
+                elif nums[(maxN + minN) // 2] < target:
+                    minN = (maxN + minN) // 2
         else:
             print('Number of elements %s' % len(nums))
-            print('Steps to find %s.' % stepCount)
-            return search
+            return (maxN + minN) // 2
