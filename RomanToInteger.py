@@ -20,8 +20,8 @@ def roman_to_int(s: str) -> int:
 
     for i in reversed(range(len(s))):
         answer += table[s[i]]
-       # if s[i+1] == 'V':
-           # print('qwerty')
+        if s[i+1] == 'V':
+            print('qwerty')
 
         
     return answer
