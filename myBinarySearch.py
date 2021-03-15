@@ -2,7 +2,7 @@ def my_binary_search(nums: list, target: int) -> int:
     nums.sort()
     maxN = len(nums) - 1
     minN = 0
-    mid = (maxN + minN) // 2
+    mid = maxN
 
     if target < nums[minN] or target > nums[maxN]:
         return None
@@ -19,4 +19,3 @@ def my_binary_search(nums: list, target: int) -> int:
         else:
             print('Number of elements %s' % len(nums))
             return mid
-
