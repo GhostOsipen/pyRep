@@ -8,13 +8,15 @@ def my_binary_search(nums: list, target: int) -> int:
         return None
     else:
         while nums[mid] != target:
-            if nums[mid] > target:
-                maxN = mid
-            elif nums[mid] < target:
-                minN = mid
             mid = (maxN + minN) // 2
+            if target  >  nums[mid]:
+                minN = mid
+            elif target  <  nums[mid]:
+                maxN = mid
         else:
             print('Number of elements %s' % len(nums))
             return mid
+            
+            
 
 print(my_binary_search([1, 3, 6], 2))
