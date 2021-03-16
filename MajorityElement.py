@@ -2,13 +2,9 @@
 # The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
 
 def majority_element(nums: list) -> int:
-    last: int = None
-    nums.sort()
-    
+    count = {}
+
     for i in nums:
-        if last != i:
-            if nums.count(i) > (len(nums)/2):
-                return i
-        last = i        
-     
-print(majority_element([2,2,1,1,1,2,2]))
+        count[i] = 1 if i not in count else count[i] + 1
+        if count[i] >= len(nums) / 2:
+            return i
