@@ -17,7 +17,5 @@ def my_binary_search(nums: list, target: int) -> int:
             else:
                 print('Number of elements %s' % len(nums))
                 return mid
-
         else:
             return None
-
