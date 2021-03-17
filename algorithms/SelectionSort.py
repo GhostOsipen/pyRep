@@ -11,7 +11,6 @@ def my_selection_sort(nums: list) -> list:
     sortedNums = []
 
     while len(nums) > 0:
-        sortedNums.append(smallest_element(nums))
-        nums.pop(nums.index(smallest_element(nums)))
+        sortedNums.append(nums.pop(nums.index(smallest_element(nums))))
 
     return sortedNums            
