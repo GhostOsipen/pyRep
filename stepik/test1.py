@@ -100,5 +100,53 @@
 # other = nums[0]
 # print(other)
 #====================== 
+# n = int(input())
 
+# if (n % 10) == 1:
+#     print(n, "программист") if (n % 100) != 11 else print(n, "программистов")
+# elif (n % 10) == 2 or (n % 10) == 3 or (n % 10) == 4:
+#     print(n, "программиста") if (n % 100) != 12 and (n % 100) != 13 and (n % 100) != 14 else print(n, "программистов")
+# else:
+#     print(n, "программистов")
 #====================== 
+# n = input()
+# print("Счастливый") if int(n[0])+int(n[1])+int(n[2]) == int(n[3])+int(n[4])+int(n[5]) else print("Обычный")
+#======================
+# s = 0
+# n = 1
+# while n != 0:
+#     n = int(input())
+#     s += n
+# print(s)
+#======================
+# a = int(input())
+# b = int(input())
+# d = 1
+# while d % a != 0 or d % b != 0:
+#     d += 1
+# print(d)
+#======================
+# a = 0
+# while a <= 100:  
+#     a = int(input())
+#     if a < 10:
+#         continue
+#     elif a > 100:
+#         break
+#     print(a)
+#======================
+a = int(input())
+b = int(input())
+c = int(input())
+d = int(input())
+
+print(end='\t')
+for i in range(c, d + 1):
+    print(i, end='\t')
+print()
+for i in range(a, b + 1):
+    print(i, end='\t')
+    for j in range(c, d + 1):
+        print(i*j , end='\t')
+    print()
+#======================
