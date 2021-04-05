@@ -135,18 +135,78 @@
 #         break
 #     print(a)
 #======================
-a = int(input())
-b = int(input())
-c = int(input())
-d = int(input())
+# a = int(input())
+# b = int(input())
+# c = int(input())
+# d = int(input())
 
-print(end='\t')
-for i in range(c, d + 1):
-    print(i, end='\t')
-print()
-for i in range(a, b + 1):
-    print(i, end='\t')
-    for j in range(c, d + 1):
-        print(i*j , end='\t')
-    print()
+# print(end='\t')
+# for i in range(c, d + 1):
+#     print(i, end='\t')
+# print()
+# for i in range(a, b + 1):
+#     print(i, end='\t')
+#     for j in range(c, d + 1):
+#         print(i*j , end='\t')
+#     print()
+#======================
+# a = int(input())
+# b = int(input())
+# s = 0
+# count = 0
+
+# for i in range(a, b + 1):
+#     if i % 3 == 0:
+#         s += i
+#         count += 1
+# print(s / count) 
+#======================
+# a = input()
+
+# g = a.count('g') + a.count('G')
+# c = a.count('c') + a.count('C')
+
+# print(((g + c)/len(a)) * 100)
+#======================
+# a = input()
+# b = ""
+# s = ""
+# count = 0
+
+# for i in range(len(a)):
+#     if a[i] != b:
+#         b = a[i]
+#         for j in a[i:]:
+#             if j == b:
+#                 count += 1
+#             else:
+#                 break
+#         s += b + str(count)    
+#         count = 0
+# print(s)
+#======================
+# a = [int(i) for i in input().split()]
+# print(sum(a))
+#======================
+# a = [int(i) for i in input().split()]
+# if len(a) == 1:
+#     print(a[0])
+# else:
+#     for i in range(len(a)):
+#         if i + 1 > len(a) - 1:
+#             print(a[i-1] + a[0], end = " ")
+#         else:
+#             print(a[i-1] + a[i + 1], end = " ")
+#======================
+# a = [int(i) for i in input().split()]
+# a.sort()
+# b = float("inf")
+# s = ""
+
+# for i in range(len(a)):
+#     if b != a[i]:
+#         b = a[i]
+#         if a.count(b) > 1:
+#             s += str(b) + " " 
+# print(s)
 #======================
