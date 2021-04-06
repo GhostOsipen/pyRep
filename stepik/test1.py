@@ -249,21 +249,13 @@
 
 # print(*s) if len(s) else print("Отсутствует")
 #======================
-s = ""
 a = []
-b = 0
 
-#b =  [int(j) for j in input().split()]
-while s != "end":
+while True:
+    s = input()
     if s == "end":
         break
-    s = [i for i in input().split()]
-    for i in s:
-        a.append(int(i))
-    
+    a.append([int(i) for i in s.split()])
 
-for i in range(len(a)):
-    for j in range(len(a[i])):
-        print(a[i][j], end=' ')
-    print()
+print(a)
 #======================
