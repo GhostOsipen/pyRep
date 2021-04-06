@@ -210,3 +210,60 @@
 #             s += str(b) + " " 
 # print(s)
 #======================
+# s = int(input())
+# b = s
+# a = [b]
+
+# while s != 0:
+#     b = int(input())
+#     s += b
+#     a.append(b)
+
+# for i in a:
+#     s += i*i
+# print(s)
+#======================
+# n = int(input())
+# m = 0
+# s = []
+# stop = False
+
+# for i in range(1,n+1):
+#     if stop:
+#         break
+#     for j in range(i):
+#         s.append(i)
+#         if len(s) >= n:
+#             stop = True
+#             break
+        
+# print(*s) 
+#======================
+# lst = [int(i) for i in input().split()]
+# x = int(input())
+# s = []
+
+# for i in range(len(lst)):
+#     if lst[i] == x:
+#         s.append(i)
+
+# print(*s) if len(s) else print("Отсутствует")
+#======================
+s = ""
+a = []
+b = 0
+
+#b =  [int(j) for j in input().split()]
+while s != "end":
+    if s == "end":
+        break
+    s = [i for i in input().split()]
+    for i in s:
+        a.append(int(i))
+    
+
+for i in range(len(a)):
+    for j in range(len(a[i])):
+        print(a[i][j], end=' ')
+    print()
+#======================
