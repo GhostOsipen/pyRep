@@ -249,13 +249,49 @@
 
 # print(*s) if len(s) else print("Отсутствует")
 #======================
-a = []
+# from copy import copy, deepcopy
 
-while True:
-    s = input()
-    if s == "end":
-        break
-    a.append([int(i) for i in s.split()])
+# a = []
+# left = 0
+# right = 0
+# up = 0
+# down = 0
 
-print(a)
+# while True:
+#     s = input()
+#     if s == "end":
+#         break
+#     a.append([int(i) for i in s.split()])
+
+# b = deepcopy(a)
+
+# rows = len(a)
+# columns = len(a[0])
+
+# for i in range(len(b)):
+#     for j in range(len(b[i])):
+#         if i < 1:
+#             up = a[-1][j]
+#         else:
+#             up = a[i-1][j]
+#         if i >= rows-1:
+#             down = a[0][j]
+#         else:
+#             down = a[i+1][j]
+#         if j < 1:
+#             left = a[i][columns - 1]
+#         else:
+#             left = a[i][j-1]
+#         if j == columns-1:
+#             right = a[i][0]
+#         else:
+#             right = a[i][j+1]
+
+#         b[i][j] = left + right + up + down
+#     print()
+
+# for row in b:
+#     for elem in row:
+#         print(elem, end=' ')
+#     print()
 #======================
