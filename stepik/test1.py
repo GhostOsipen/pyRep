@@ -295,3 +295,69 @@
 #         print(elem, end=' ')
 #     print()
 #======================
+n = int(input())
+a = []
+
+for i in range(n):
+    b = []
+    for j in range(n):
+        b.append(0)    
+    a.append(b)
+
+s_start = 0
+s_end = n
+c_start = 0
+c_end = n
+direction = "right"
+m = 0
+
+while m < n**2:
+    if direction == "right":
+        for i in range(s_start, s_end):
+            if m > n**2:
+                break
+            m += 1
+            print(m)
+
+        
+        c_start -=1
+
+        direction = "down"
+    if direction == "down":
+        for i in range(c_start, c_end):
+            m += 1
+            if m > n**2:
+                break
+            print(m)
+
+
+        s_end -= 1
+
+        direction = "left"
+    if direction == "left":
+        for i in range(s_start, s_end, -1):
+            m += 1
+            if m > n**2:
+                break
+            print(m)
+
+
+        c_start -= 1
+
+        direction = "up"
+    if direction == "up":
+        for i in range(c_start, c_end, -1):
+            m += 1
+            if m > n**2:
+                break
+            print(m)
+
+
+        s_end -= 1
+
+        direction = "right"
+
+# for row in a:
+#     for elem in row:
+#         print(elem, end=' ')
+#     print()
