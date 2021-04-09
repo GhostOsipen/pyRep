@@ -296,65 +296,154 @@
 #     print()
 #======================
 # spiral matrix
-n = int(input())
-a = []
+# n = int(input())
+# a = []
 
-for i in range(n):
-    b = []
-    for j in range(n):
-        b.append(0)    
-    a.append(b)
+# for i in range(n):
+#     b = []
+#     for j in range(n):
+#         b.append(0)    
+#     a.append(b)
 
-s_start = 0
-s_end = n-1
-c_start = 0
-c_end = n-1
-direction = "right"
-m = 0
+# s_start = 0
+# s_end = n-1
+# c_start = 0
+# c_end = n-1
+# direction = "right"
+# m = 0
 
-while m < n**2:
-    if direction == "right":
-        for i in range(s_start, s_end+1):
-            m += 1
-            if m > n**2:
-                break
-            a[c_start][i] = m
+# while m < n**2:
+#     if direction == "right":
+#         for i in range(s_start, s_end+1):
+#             m += 1
+#             if m > n**2:
+#                 break
+#             a[c_start][i] = m
         
-        c_start +=1
+#         c_start +=1
 
-        direction = "down"
-    if direction == "down":
-        for i in range(c_start, c_end+1):
-            m += 1
-            if m > n**2:
-                break
-            a[i][c_end] = m
+#         direction = "down"
+#     if direction == "down":
+#         for i in range(c_start, c_end+1):
+#             m += 1
+#             if m > n**2:
+#                 break
+#             a[i][c_end] = m
 
-        s_end -= 1
+#         s_end -= 1
 
-        direction = "left"
-    if direction == "left":
-        for i in range(s_end, s_start-1, -1):
-            m += 1
-            if m > n**2:
-                break
-            a[c_end][i] = m
+#         direction = "left"
+#     if direction == "left":
+#         for i in range(s_end, s_start-1, -1):
+#             m += 1
+#             if m > n**2:
+#                 break
+#             a[c_end][i] = m
 
-        c_end -= 1
+#         c_end -= 1
 
-        direction = "up"
-    if direction == "up":
-        for i in range(c_end, c_start-1, -1):
-            m += 1
-            if m > n**2:
-                break
-            a[i][s_start] = m
+#         direction = "up"
+#     if direction == "up":
+#         for i in range(c_end, c_start-1, -1):
+#             m += 1
+#             if m > n**2:
+#                 break
+#             a[i][s_start] = m
 
-        s_start += 1
+#         s_start += 1
 
-        direction = "right"
+#         direction = "right"
 
-for row in a:
-    for elem in row:
-        print(elem, end=' ')
-    print()
+# for row in a:
+#     for elem in row:
+#         print(elem, end=' ')
+#     print()
+#======================
+# def f(x):
+#     if x <= 2:
+#         if -2 < x:
+#             return -(x/2)
+#         else:
+#             return 1 - (x + 2)**2
+#     elif x > 2:
+#         return (x-2)**2 + 1
+
+# print(f(-4.5))
+#======================
+# def modify_list(l):
+#     i = 0
+#     while i < len(l):
+#         if l[i] % 2 != 0:
+#             l.pop(i)
+#         else:
+#             l[i] = l[i] // 2
+#             i += 1
+
+# lst = [1,2,3,4,5,6]
+# print(lst)
+# modify_list(lst)
+# print(lst)
+# modify_list(lst)
+# print(lst)
+#======================
+# def update_dictionary(d, key, value):
+#     if key not in d:
+#         if 2*key not in d:
+#             d.setdefault(2*key, []).append(value) 
+#         else: 
+#             d.setdefault(2*key, []).append(value)
+#     else:
+#         d.setdefault(key, []).append(value)
+
+# d = {}
+# print(update_dictionary(d, 1, -1))  # None
+# print(d)                            # {2: [-1]}
+# update_dictionary(d, 2, -2)
+# print(d)                            # {2: [-1, -2]}
+# update_dictionary(d, 1, -3)
+# print(d)                            # {2: [-1, -2, -3]}
+#======================
+# s = input().lower().split()
+# count = {}
+
+# for i in s:
+#     count[i] = 1 if i not in count else count[i] + 1
+
+# for i,v in count.items():
+#     print(i, v)
+#======================
+# n = int(input())
+# a = {}
+# b = []
+
+# for i in range(n):
+#     x = int(input())
+#     if x not in a.keys():
+#         a[x] = x+1 #f(x))
+#         b.append(a[x])
+#     else:
+#         b.append(a[x])
+
+# for i in b:
+#     print(i)
+#======================
+with open("D:\\PythonProjects\\pyRep\\stepik\\dataset_3363_2.txt") as inf:
+    s = inf.readline()
+
+char = ""
+n = ""
+d = {}
+
+with open("D:\\PythonProjects\\pyRep\\stepik\\file1.txt", "w") as ouf:
+    for i in range(len(s)):
+        if not s[i].isdigit():
+            if s[i] not in d:
+                d[s[i]] = 0
+        else:
+            for j in s[i:]:
+                if not j.isdigit():
+                    break
+                else: 
+                    d[i] += j
+        #ouf.write((char * int(n)))     
+
