@@ -431,19 +431,16 @@ with open("D:\\PythonProjects\\pyRep\\stepik\\dataset_3363_2.txt") as inf:
     s = inf.readline()
 
 char = ""
-n = ""
+n = "0"
 d = {}
 
 with open("D:\\PythonProjects\\pyRep\\stepik\\file1.txt", "w") as ouf:
     for i in range(len(s)):
         if not s[i].isdigit():
             if s[i] not in d:
-                d[s[i]] = 0
+                ouf.write(char*int(n))
+                n = ""
+                char = s[i]
         else:
-            for j in s[i:]:
-                if not j.isdigit():
-                    break
-                else: 
-                    d[i] += j
-        #ouf.write((char * int(n)))     
-
+            n += s[i]
+#======================
