@@ -427,20 +427,38 @@
 # for i in b:
 #     print(i)
 #======================
-with open("D:\\PythonProjects\\pyRep\\stepik\\dataset_3363_2.txt") as inf:
-    s = inf.readline()
+# with open("D:\\PythonProjects\\pyRep\\stepik\\dataset_3363_2.txt") as inf:
+#     s = inf.readline()
 
-char = ""
-n = "0"
-d = {}
+# char = ""
+# n = "0"
 
-with open("D:\\PythonProjects\\pyRep\\stepik\\file1.txt", "w") as ouf:
-    for i in range(len(s)):
-        if not s[i].isdigit():
-            if s[i] not in d:
-                ouf.write(char*int(n))
-                n = ""
-                char = s[i]
-        else:
-            n += s[i]
+# with open("D:\\PythonProjects\\pyRep\\stepik\\file1.txt", "w") as ouf:
+#     for i in range(len(s)):
+#         if not s[i].isdigit():
+#             if s[i] not in d:
+#                 ouf.write(char*int(n))
+#                 n = ""
+#                 char = s[i]
+#         else:
+#             n += s[i]
 #======================
+def best_word(lines):
+    d = {}
+    for i in lines:
+        d[i.lower()] = 1 if i.lower() not in d else d[i.lower()] + 1
+    
+    max_values = [k for k, v in d.items() if v == max(d.values())]
+    maxi = max_values[0]
+    for i in max_values:
+        if i > maxi:
+            maxi = i
+    print(maxi, d[maxi])
+
+    return d
+
+
+with open("D:\\PythonProjects\\pyRep\\stepik\\dataset_3363_3.txt") as inf:
+    print(best_word(inf.read().split()))
+    
+    
