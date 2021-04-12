@@ -443,22 +443,47 @@
 #         else:
 #             n += s[i]
 #======================
-def best_word(lines):
-    d = {}
-    for i in lines:
-        d[i.lower()] = 1 if i.lower() not in d else d[i.lower()] + 1
+# def best_word(lines):
+#     d = {}
+#     for i in lines:
+#         d[i.lower()] = 1 if i.lower() not in d else d[i.lower()] + 1
     
-    max_values = [k for k, v in d.items() if v == max(d.values())]
-    maxi = max_values[0]
-    for i in max_values:
-        if i > maxi:
-            maxi = i
-    print(maxi, d[maxi])
+#     max_values = [k for k, v in d.items() if v == max(d.values())] # list of keys with max values 
+#     maxi = max_values[0]
+#     for i in max_values:
+#         if i > maxi:
+#             maxi = i
+#     print(maxi, d[maxi])
 
-    return d
+#     return d
 
 
-with open("D:\\PythonProjects\\pyRep\\stepik\\dataset_3363_3.txt") as inf:
-    print(best_word(inf.read().split()))
+# with open("D:\\PythonProjects\\pyRep\\stepik\\dataset_3363_3.txt") as inf:
+#     print(best_word(inf.read().split()))
+#======================
+s = []
+a = []
+b = []
+c = []
+
+lst = []
+
+with open("D:\\PythonProjects\\pyRep\\stepik\\dataset_3363_4.txt") as f:
+    for line in f:
+        s = line.split(";")
+        a.append(int(s[1].strip()))
+        b.append(int(s[2].strip()))
+        c.append(int(s[3].strip()))
+        lst.append(str((int(s[1]) + int(s[2]) + int(s[3])) / 3))
     
-    
+    with open("D:\\PythonProjects\\pyRep\\stepik\\file2.txt", "w") as f:
+        for i in lst:
+            f.write(i+"\n")    
+        
+        f.write(str(sum(a) / len(a)))
+        f.write(" ")
+        f.write(str(sum(b) / len(b)))
+        f.write(" ")
+        f.write(str(sum(c) / len(c)))
+
+
