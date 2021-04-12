@@ -461,29 +461,38 @@
 # with open("D:\\PythonProjects\\pyRep\\stepik\\dataset_3363_3.txt") as inf:
 #     print(best_word(inf.read().split()))
 #======================
-s = []
-a = []
-b = []
-c = []
+# s = []
+# a = []
+# b = []
+# c = []
 
-lst = []
+# lst = []
 
-with open("D:\\PythonProjects\\pyRep\\stepik\\dataset_3363_4.txt") as f:
-    for line in f:
-        s = line.split(";")
-        a.append(int(s[1].strip()))
-        b.append(int(s[2].strip()))
-        c.append(int(s[3].strip()))
-        lst.append(str((int(s[1]) + int(s[2]) + int(s[3])) / 3))
+# with open("D:\\PythonProjects\\pyRep\\stepik\\dataset_3363_4.txt") as f:
+#     for line in f:
+#         s = line.split(";")
+#         a.append(int(s[1].strip()))
+#         b.append(int(s[2].strip()))
+#         c.append(int(s[3].strip()))
+#         lst.append(str((int(s[1]) + int(s[2]) + int(s[3])) / 3))
     
-    with open("D:\\PythonProjects\\pyRep\\stepik\\file2.txt", "w") as f:
-        for i in lst:
-            f.write(i+"\n")    
+#     with open("D:\\PythonProjects\\pyRep\\stepik\\file2.txt", "w") as f:
+#         for i in lst:
+#             f.write(i+"\n")    
         
-        f.write(str(sum(a) / len(a)))
-        f.write(" ")
-        f.write(str(sum(b) / len(b)))
-        f.write(" ")
-        f.write(str(sum(c) / len(c)))
+#         f.write(str(sum(a) / len(a)))
+#         f.write(" ")
+#         f.write(str(sum(b) / len(b)))
+#         f.write(" ")
+#         f.write(str(sum(c) / len(c)))
+#======================
+# import math
 
+# r = float(input())
 
+# print(2*math.pi*r)
+#======================
+import sys
+
+for i in sys.argv[1:]:
+    print(i, end=" ")
