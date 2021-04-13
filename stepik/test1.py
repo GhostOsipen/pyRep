@@ -492,7 +492,32 @@
 
 # print(2*math.pi*r)
 #======================
-import sys
+# import sys
 
-for i in sys.argv[1:]:
-    print(i, end=" ")
+# for i in sys.argv[1:]:
+#     print(i, end=" ")
+#======================
+# import requests
+
+# r = requests.get('https://stepic.org/media/attachments/course67/3.6.2/989.txt')
+# print(r.text)
+# print(len(r.text.splitlines()))
+#======================
+# import requests
+
+# s = "699991.txt"
+# i = 0
+# end = ""
+
+# while True:
+#     if end == "We":
+#         break
+#     r = requests.get("https://stepic.org/media/attachments/course67/3.6.3/" + s)
+#     s = r.text
+
+#     end = r.text.split()[0]
+#     i+=1
+#     print(i)
+
+# print(r.text)
+#======================
