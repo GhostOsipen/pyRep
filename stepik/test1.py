@@ -585,31 +585,51 @@
 # for k in d_plays.keys():
 #     print(k+":", d_plays[k], d_wins[k], d_draws[k], d_loses[k], d_score[k])
 #======================
-a = input()
-k = input()
-b = input()
-r = input()
+# a = input()
+# k = input()
+# b = input()
+# r = input()
 
-# a = "abcd"
-# k = "*d%#"
-# b = "abacabadaba"
-# r = "#*%*d*%"
+# # a = "abcd"
+# # k = "*d%#"
+# # b = "abacabadaba"
+# # r = "#*%*d*%"
 
-s_cipher = ""
-s_decipher = ""
+# s_cipher = ""
+# s_decipher = ""
 
-d_c = {}
-d_d = {}
+# d_c = {}
+# d_d = {}
 
-for i in range(len(a)):
-    d_c[a[i]] = k[i]
-    d_d[k[i]] = a[i]
+# for i in range(len(a)):
+#     d_c[a[i]] = k[i]
+#     d_d[k[i]] = a[i]
 
-for i in range(len(b)):
-    s_cipher += d_c[b[i]]
+# for i in range(len(b)):
+#     s_cipher += d_c[b[i]]
 
-for i in range(len(r)):
-    s_decipher += d_d[r[i]]
+# for i in range(len(r)):
+#     s_decipher += d_d[r[i]]
 
-print(s_cipher)
-print(s_decipher)
+# print(s_cipher)
+# print(s_decipher)
+#======================
+d = int(input())
+words = []
+lines = []
+er = set()
+
+words = [input().lower() for i in range(d)]
+
+l = int(input())
+
+lines = [input().lower().split() for i in range(l)]
+
+for i in range(len(lines)):
+    for j in range(len(lines[i])):
+        if lines[i][j] not in words:
+            er.add(lines[i][j])
+
+for i in er:    
+    print(i)
+
