@@ -521,3 +521,66 @@
 
 # print(r.text)
 #======================
+n = int(input())
+s = []
+d_plays = {}
+d_wins = {}
+d_draws = {}
+d_loses = {}
+d_score = {}
+
+for i in range(n):
+   s.append(input().split(";"))
+
+#s = [["Спартак","9","Зенит","10"],["Локомотив","12","Зенит","3"],["Спартак","8","Локомотив","15"],["A","1","B","1"]]
+
+
+# count of plays
+for i in range(len(s)):
+    if s[i][0] not in d_plays:
+        d_plays[s[i][0]] = 1
+    else:
+        d_plays[s[i][0]] += 1
+    if s[i][2] not in d_plays:
+        d_plays[s[i][2]] = 1
+    else:
+        d_plays[s[i][2]] += 1
+
+#wins, draw, loses, score
+
+for i in range(len(s)):
+    if int(s[i][1]) > int(s[i][3]):
+        d_wins[s[i][0]] = 1 if s[i][0] not in d_wins else d_wins[s[i][0]] + 1
+        d_score[s[i][0]] = 3 if s[i][0] not in d_score else d_score[s[i][0]] + 3
+        d_loses[s[i][2]] = 1 if s[i][2] not in d_loses else d_loses[s[i][2]] + 1
+    elif int(s[i][1]) < int(s[i][3]):
+        d_wins[s[i][2]] = 1 if s[i][2] not in d_wins else d_wins[s[i][2]] + 1
+        d_score[s[i][2]] = 3 if s[i][2] not in d_score else d_score[s[i][2]] + 3
+        d_loses[s[i][0]] = 1 if s[i][0] not in d_loses else d_loses[s[i][0]] + 1
+    else:
+        d_draws[s[i][0]] = 1 if s[i][0] not in d_draws else d_draws[s[i][0]] + 1
+        d_draws[s[i][2]] = 1 if s[i][2] not in d_draws else d_draws[s[i][2]] + 1
+
+        d_score[s[i][0]] = 1 if s[i][0] not in d_score else d_score[s[i][0]] + 1
+        d_score[s[i][2]] = 1 if s[i][2] not in d_score else d_score[s[i][2]] + 1
+
+# 0 to if not exist
+for k in d_plays.keys():
+    if k not in d_score:
+        d_score[k] = 0
+
+for k in d_plays.keys():
+    if k not in d_draws:
+        d_draws[k] = 0
+
+for k in d_plays.keys():
+    if k not in d_wins:
+        d_wins[k] = 0
+
+for k in d_plays.keys():
+    if k not in d_loses:
+        d_loses[k] = 0
+
+#answer
+for k in d_plays.keys():
+    print(k+":", d_plays[k], d_wins[k], d_draws[k], d_loses[k], d_score[k])
