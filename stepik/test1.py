@@ -614,22 +614,47 @@
 # print(s_cipher)
 # print(s_decipher)
 #======================
-d = int(input())
-words = []
-lines = []
-er = set()
+# d = int(input())
+# words = []
+# lines = []
+# er = set()
 
-words = [input().lower() for i in range(d)]
+# words = [input().lower() for i in range(d)]
 
-l = int(input())
+# l = int(input())
 
-lines = [input().lower().split() for i in range(l)]
+# lines = [input().lower().split() for i in range(l)]
 
-for i in range(len(lines)):
-    for j in range(len(lines[i])):
-        if lines[i][j] not in words:
-            er.add(lines[i][j])
+# for i in range(len(lines)):
+#     for j in range(len(lines[i])):
+#         if lines[i][j] not in words:
+#             er.add(lines[i][j])
 
-for i in er:    
-    print(i)
+# for i in er:    
+#     print(i)
+#======================
+pos_x = 0
+pos_y = 0
 
+def move_pos(direction: str, value: int):
+    if direction == "север":
+        global pos_y
+        pos_y += value 
+    if direction == "юг":
+        global pos_y
+        pos_y += -value
+    if direction == "запад":
+        global pos_x
+        pos_x += -value
+    if direction == "восток":
+        global pos_x
+        pos_x += value
+
+
+n = int(input())
+
+for i in range(n):
+    s = input().split()
+    move_pos(s[0], int(s[1]))
+
+print(pos_x, pos_y)
