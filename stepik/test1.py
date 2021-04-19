@@ -633,28 +633,42 @@
 # for i in er:    
 #     print(i)
 #======================
-pos_x = 0
-pos_y = 0
+# position = [0,0]
 
-def move_pos(direction: str, value: int):
-    if direction == "север":
-        global pos_y
-        pos_y += value 
-    if direction == "юг":
-        global pos_y
-        pos_y += -value
-    if direction == "запад":
-        global pos_x
-        pos_x += -value
-    if direction == "восток":
-        global pos_x
-        pos_x += value
+# def move_pos(direction: str, value: int):
+#     if direction == "север":
+#         position[1] += value 
+#     if direction == "юг":
+#         position[1] += -value
+#     if direction == "запад":
+#         position[0] += -value
+#     if direction == "восток":
+#         position[0] += value
 
 
-n = int(input())
+# n = int(input())
 
-for i in range(n):
-    s = input().split()
-    move_pos(s[0], int(s[1]))
+# for i in range(n):
+#     s = input().split()
+#     move_pos(s[0], int(s[1]))
 
-print(pos_x, pos_y)
+# print(*position)
+#======================
+lst = []
+d = {}
+r = {}
+
+with open("D:\\PythonProjects\\pyRep\\stepik\\dataset_3380_5.txt") as f:
+    for line in f:
+        lst.append(line.split())
+
+for i in range(len(lst)):
+    d[int(lst[i][0])] = [int(lst[i][2])] if int(lst[i][0]) not in d else d[int(lst[i][0])] + [int(lst[i][2])]
+
+with open("D:\\PythonProjects\\pyRep\\stepik\\file3.txt", "w") as f:
+    for i in range(1,12):
+        r[i] = "-" if i not in d else sum(d[i]) / len(d[i])      
+        f.write(str(i) + " " + str(r[i]) + "\n")
+
+
+
