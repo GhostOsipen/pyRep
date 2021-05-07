@@ -10,10 +10,6 @@ class Person:
     def __del__(self):
         Person.d.pop(self.name, None)
 
-    # @classmethod
-    # def remove_person(cls, name):
-    #     Person.d.pop(name, None)
-
     def change_person_name(self, newName):
         Person.d[newName] = Person.d[self.name]
         del Person.d[self.name]
@@ -64,3 +60,49 @@ Person.find_by_name("Mo")
 Person.find_by_phone(1)
 
 #===================
+import toga
+
+
+def add_handler(sender):
+    print("hello")
+
+def del_handler(widget):
+    print("hello")
+
+def build(app):
+    box = toga.Box()
+
+    add_person_cmd = toga.Command(
+        add_handler,
+        label="Add person",
+        tooltip="Add person tooltip")
+
+
+
+    table = toga.Table(['Name', 'Phone'])
+    table.style.padding = 10
+    table.style.flex = 1
+
+    # add_button = toga.Button('Hello world', on_press=add_button_handler)
+    # add_button.style.padding = 10
+    # add_button.style.flex = 1
+
+    # del_button = toga.Button('Hello world', on_press=del_button_handler)
+    # del_button.style.padding = 10
+    # del_button.style.flex = 1
+
+    # box.add(add_button)
+    # box.add(del_button)
+    box.add(table)
+
+    app.main_window.toolbar.add(add_person_cmd)
+
+    return box
+
+
+def main():
+    return toga.App('Phone Book', '1', startup=build)
+
+
+if __name__ == '__main__':
+    main().main_loop()
