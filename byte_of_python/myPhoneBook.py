@@ -1,10 +1,10 @@
 import pickle
 
 class Person:
-    def __init__(self,  name, second_name, phone) -> None:
+    def __init__(self,  name, last_name, phone) -> None:
         self.name = name
         self.phone = phone
-        self.second_name = second_name
+        self.last_name = last_name
 
         print(f"{self.name} ADDED")
 
@@ -15,47 +15,42 @@ class PhoneBook:
     d = {}
 
     @classmethod
-    def add_person(cls, name: str, second_name: str, phone: int):
-        person = Person(name, second_name, phone)
-        PhoneBook.d[person.name] = person
+    def add_person(cls, name: str, last_name: str, phone: str):
+        person = Person(name, last_name, phone)
+        cls.d[person.name] = person
 
     @classmethod
     def delete_person_by_name(cls, name: str):
-        del PhoneBook.d[name]
+        del cls.d[name]
         print(name, "DELETED")
 
     @classmethod
     def change_person_name(cls, old_name, new_name):
-        PhoneBook.d[old_name].name = new_name
-        PhoneBook.d[new_name] = PhoneBook.d[old_name]
-        del PhoneBook.d[old_name]
+        cls.d[old_name].name = new_name
+        cls.d[new_name] = cls.d[old_name]
+        del cls.d[old_name]
         print("CHANGED")
 
     @classmethod
-    def change_person_second_name(cls, name, new_second_name):
-        PhoneBook.d[name].second_name = new_second_name
+    def change_person_last_name(cls, name, new_last_name):
+        cls.d[name].last_name = new_last_name
         print("CHANGED")
 
     @classmethod
     def change_person_phone(cls, name, new_phone):
-        PhoneBook.d[name].phone = new_phone
+        cls.d[name].phone = new_phone
         print("CHANGED")
 
     @classmethod
     def person_list(cls):
-        for k in PhoneBook.d.keys():
-            print(
-                f"Name: {PhoneBook.d[k].name}, Second name: {PhoneBook.d[k].second_name}, Phone: {PhoneBook.d[k].phone}")
+        for person in cls.d.values():
+            print(f"Name: {person.name}, Second name: {person.last_name}, Phone: {person.phone}")
 
     @classmethod
     def find_person(cls, s):
-        for k in PhoneBook.d.keys():
-            if str(s).lower() in str(PhoneBook.d[k].name).lower():
-                print(f"Name: {PhoneBook.d[k].name}, Second name: {PhoneBook.d[k].second_name}, Phone: {PhoneBook.d[k].phone}")
-            if str(s).lower() in str(PhoneBook.d[k].second_name).lower():
-                print(f"Name: {PhoneBook.d[k].name}, Second name: {PhoneBook.d[k].second_name}, Phone: {PhoneBook.d[k].phone}")
-            if str(s) in str(PhoneBook.d[k].phone):
-                print(f"Name: {PhoneBook.d[k].name}, Second name: {PhoneBook.d[k].second_name}, Phone: {PhoneBook.d[k].phone}")
+        for person in cls.d.values():
+            if (s.lower() in person.name.lower()) or (s.lower() in person.last_name.lower()) or (s.lower() in person.phone.lower()):
+                print(f"Name: {person.name}, Second name: {person.last_name}, Phone: {person.phone}")
 
 
 print("Hello there!")
@@ -81,8 +76,8 @@ while True:
                 print("name =>")
                 name = input()
                 print("new second name =>")
-                new_second_name = input()
-                PhoneBook.change_person_second_name(name, new_second_name)
+                new_last_name = input()
+                PhoneBook.change_person_last_name(name, new_last_name)
             elif change == "phone":
                 print("name =>")
                 name = input()
