@@ -107,8 +107,7 @@ help   <= for help!''')
         if command[0] == "delete":
             PhoneBook.delete_person_by_name(name=command[1])
         elif command[0] == "find":
-            if type(command[1]) is str:
-                PhoneBook.find_person(command[1])
+            PhoneBook.find_person(command[1])
 
     if len(command) == 3:
         if command[0] == "add":
